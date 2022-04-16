@@ -8,3 +8,7 @@ html, body, main {
 * {
   font-size:large
 }
+
+p {
+  font-family: 'Inconsolata', monospace;
+}

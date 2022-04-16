@@ -38,7 +38,12 @@ let defaultCode =
 
 let pattern = mini("[[60, 63, 71]*2 [62, 65, 70]*3]").to_glicol(span)
 
-glicol.run(\`o: p_synth \${pattern} \${span} >> plate 0.1\`)`;
+glicol.run(\`~t1: p_synth \${pattern} \${span}
+>> lpf 1000.0 1.0
+
+~t2: speed 4.0 >> seq 60 >> bd 0.1
+
+out: mix ~t.. >> plate 0.1\`)`;
 
 editor.setValue(defaultCode)
 window.glicol = new Glicol();
