@@ -1,0 +1,18 @@
+{
+  "name": "glicol-strudel",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.9.5"
+  },
+  "dependencies": {
+    "@strudel.cycles/core": "^0.0.5",
+    "@strudel.cycles/mini": "^0.0.7",
+    "glicol": "^0.2.10"
+  }
+}
