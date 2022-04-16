@@ -3,13 +3,13 @@ lockfileVersion: 5.3
 specifiers:
   '@strudel.cycles/core': ^0.0.5
   '@strudel.cycles/mini': ^0.0.7
-  glicol: ^0.2.10
+  glicol: ^0.2.11
   vite: ^2.9.5
 
 dependencies:
   '@strudel.cycles/core': 0.0.5
   '@strudel.cycles/mini': 0.0.7
-  glicol: 0.2.10
+  glicol: 0.2.11
 
 devDependencies:
   vite: 2.9.5
@@ -499,8 +499,8 @@ packages:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
     dev: true
 
-  /glicol/0.2.10:
-    resolution: {integrity: sha512-BsW0crkSTwCj1ZvMYxccWEov1WGyW8eQvXywYFNqH04oxsAvsYaKI0bzyQIwLMo4ljnBAPTzltP9F443dwDS3w==}
+  /glicol/0.2.11:
+    resolution: {integrity: sha512-vZo90t5t6dKVzIVxwFpfvzK5FWGbNtWlVc+2SzU8OY98APDAFTvF8cljG4zBDJDTbfu+ABOnTZnV4idIUPn89w==}
     dependencies:
       '@strudel.cycles/core': 0.0.3
     dev: false

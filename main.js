@@ -35,18 +35,21 @@ window.Pattern = Pattern;
 
 let defaultCode =
 `let span = 1
-
-let pattern = mini("[[60, 63, 71]*2 [62, 65, 70]*3]").to_glicol(span)
+let pattern = mini("[60*2 [67,63] [~ 63] [67,72]*3]").to_glicol(span)
+let pattern2 = mini("[~ [48, 51]]*2").to_glicol(span)
 
 glicol.run(\`~t1: p_synth \${pattern} \${span}
->> lpf 1000.0 1.0
+>> lpf 1000.0 1.0 >> mul 0.5
 
-~t2: speed 4.0 >> seq 60 >> bd 0.1
+~t2: p_synth \${pattern2} \${span}
+>> lpf 800.0 1.0
+
+~t3: speed 4.0 >> seq 60 >> bd 0.1
 
 out: mix ~t.. >> plate 0.1\`)`;
 
 editor.setValue(defaultCode)
-window.glicol = new Glicol();
+window.glicol = new Glicol(true)
 
 document.getElementById("run").addEventListener("click", ()=>{
     Function(`return ()=>{
