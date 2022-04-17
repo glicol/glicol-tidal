@@ -42,9 +42,9 @@ glicol.run(\`~t1: p_synth \${pattern} \${span}
 >> lpf 1000.0 1.0 >> mul 0.5
 
 ~t2: p_synth \${pattern2} \${span}
->> lpf 800.0 1.0 >> mul 0.8
+>> lpf 1800.0 1.0 >> mul 0.8
 
-~t3: speed 4.0 >> seq 60 >> bd 0.1 >> mul 0.6
+~t3: speed 4.0 >> seq 60 >> bd 0.1 >> mul 0.4
 out: mix ~t.. >> plate 0.1\`)`;
 
 editor.setValue(defaultCode)
