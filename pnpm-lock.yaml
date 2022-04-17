@@ -3,13 +3,13 @@ lockfileVersion: 5.3
 specifiers:
   '@strudel.cycles/core': ^0.0.5
   '@strudel.cycles/mini': ^0.0.7
-  glicol: ^0.2.11
+  glicol: ^0.2.14
   vite: ^2.9.5
 
 dependencies:
   '@strudel.cycles/core': 0.0.5
   '@strudel.cycles/mini': 0.0.7
-  glicol: 0.2.11
+  glicol: 0.2.14
 
 devDependencies:
   vite: 2.9.5
@@ -21,14 +21,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.9
-    dev: false
-
-  /@strudel.cycles/core/0.0.3:
-    resolution: {integrity: sha512-r0vc6QGUkS8iDbeTVqufKKzFexWuGhjeYVoxZ7FIF/i3iDLfZQqxXDYOMs2xahF8CdOQ7oZR1I5bq0gg/67rXg==}
-    dependencies:
-      bjork: 0.0.1
-      fraction.js: 4.2.0
-      ramda: 0.28.0
     dev: false
 
   /@strudel.cycles/core/0.0.5:
@@ -499,10 +491,8 @@ packages:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
     dev: true
 
-  /glicol/0.2.11:
-    resolution: {integrity: sha512-vZo90t5t6dKVzIVxwFpfvzK5FWGbNtWlVc+2SzU8OY98APDAFTvF8cljG4zBDJDTbfu+ABOnTZnV4idIUPn89w==}
-    dependencies:
-      '@strudel.cycles/core': 0.0.3
+  /glicol/0.2.14:
+    resolution: {integrity: sha512-hiREmx2J+by/4KU64+gD1iCqyz5MMvI8wBGgHB4lUmKwf8FgYQAhiqwG2pJ2nV/W2US9MKEK9ArJjK0TpPPKzw==}
     dev: false
 
   /has/1.0.3:
@@ -549,10 +539,6 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
-
-  /ramda/0.28.0:
-    resolution: {integrity: sha512-9QnLuG/kPVgWvMQ4aODhsBUFKOUmnbUnsSXACv+NCQZcHbeb+v8Lodp8OVxtRULN1/xOyYLLaL6npE6dMq5QTA==}
-    dev: false
 
   /regenerator-runtime/0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}

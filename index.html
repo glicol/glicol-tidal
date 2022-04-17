@@ -8,13 +8,21 @@
   <body>
     <main>
       <div id="inner">
+      <textarea id="code" cols="40" rows="5"></textarea><br />
+      <button id="run">run</button>
       <p>This is a combination of Glicol language/audio engine and Strudel/Tidal (mini) patterns.</p>
       <p>Find more on:</p>
       <p><a href="https://glicol.org" style="text-decoration: underline">https://glicol.org</a></p>
       <p><a href="https://strudel.tidalcycles.org/tutorial" style="text-decoration: underline">https://strudel.tidalcycles.org/tutorial</a></p>
-      <textarea id="code" cols="40" rows="5" style="min-height: 600px; min-width: 800px"></textarea><br />
-      <button id="run">run</button>
-      <!-- <button id="stop">stop</button><br /> -->
+      <p>Source code:</p>
+      <p><a href="https://github.com/glicol/glicol-strudel" style="text-decoration: underline">https://github.com/glicol/glicol-strudel</a></p>
+      <p>Note:</p>
+      <ul>
+        <li>Only MIDI numbers are supported; will have a converter to support note like 'c5' soon.</li>
+        <li>The <code>span</code> is a POC and I am working on that. Currently it's always span 1.</li>
+        <li>There will be more synth style to come.</li>
+        <li>I am also working on scheduler.</li>
+      </ul>
       </div>
     </main>
     <link rel="preconnect" href="https://fonts.googleapis.com">
