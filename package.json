@@ -13,6 +13,6 @@
   "dependencies": {
     "@strudel.cycles/core": "^0.0.5",
     "@strudel.cycles/mini": "^0.0.7",
-    "glicol": "^0.2.15"
+    "glicol": "^0.2.16"
   }
 }
