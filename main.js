@@ -1,7 +1,7 @@
 import './neo.css'
 import './style.css'
 import Glicol from 'glicol'
-import { sequence, Pattern } from '@strudel.cycles/core';
+import { stack, sequence, Pattern } from '@strudel.cycles/core';
 import { mini } from '@strudel.cycles/mini';
 import { Scheduler } from "@strudel.cycles/webaudio";
 
@@ -34,19 +34,11 @@ window.mini = mini;
 window.Pattern = Pattern;
 
 let defaultCode =
-`// mini("[[60*2 [67,63]*3] [[67,72]*3]]/2").control_glicol("~t1", 0)
-
-// mini("[~ [60, 63, 70]]*4").control_glicol("~t2", 0)
-
-mini("[60 72]").msg_glicol("~t1", 0)
-
-mini("[~ 63 ~ 70]").msg_glicol("~t2", 0)
+`mini("[60 [63, 67, 70, 72]]").msg_glicol("~t1", 0)
 
 glicol.run(\`
 
 ~t1: msgsynth 'saw' 0.01 0.1
-
-~t2: msgsynth 'saw' 0.1 0.01
 
 o: mix ~t.. >> plate 0.1
 
@@ -68,19 +60,27 @@ o: mix ~t.. >> plate 0.1
 editor.setValue(defaultCode)
 window.glicol = new Glicol(true)
 
+window.scheduler = new Scheduler({
+    audioContext: glicol.audioContext,
+    interval: 0.01,
+    onEvent: (e) => {
+        let name = window.msg_target.trackName;
+        let index = window.msg_target.nodeIndex
+        let m = `${name}, ${index}, 3, ${e.whole.begin.valueOf()}=>${e.value}`
+        console.log(m)
+        glicol.send_msg(m)
+    }
+})
+
 Pattern.prototype.msg_glicol = function(trackName, nodeIndex) {
-    this.scheduler = new Scheduler({
-        audioContext: glicol.audioContext,
-        interval: 0.01,
-        onEvent: (e) => {
-            console.log(`${e.value}: ${e.whole.begin.valueOf()} -> ${e.whole.end.valueOf()}`)
-            glicol.send_msg(`${trackName}, ${nodeIndex}, 3, ${e.whole.begin.valueOf()}=>${e.value}`)
-        }
-    })
-    this.scheduler.setPattern(this);
-    if (!this.isSchedulerRunning) {
-        this.scheduler.start();
-        this.isSchedulerRunning = true;
+    window.msg_target = {
+        "trackName": trackName,
+        "nodeIndex": nodeIndex,
+    }
+    window.scheduler.setPattern(this);
+    if (!window.isSchedulerRunning) {
+        window.scheduler.start();
+        window.isSchedulerRunning = true;
     }
 }
 
