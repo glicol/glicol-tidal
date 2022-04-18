@@ -3,12 +3,14 @@ lockfileVersion: 5.3
 specifiers:
   '@strudel.cycles/core': ^0.0.5
   '@strudel.cycles/mini': ^0.0.7
+  '@strudel.cycles/webaudio': ^0.0.6
   glicol: ^0.2.21
   vite: ^2.9.5
 
 dependencies:
   '@strudel.cycles/core': 0.0.5
   '@strudel.cycles/mini': 0.0.7
+  '@strudel.cycles/webaudio': 0.0.6
   glicol: 0.2.21
 
 devDependencies:
@@ -61,6 +63,12 @@ packages:
       tone: 14.7.77
     transitivePeerDependencies:
       - webmidi
+    dev: false
+
+  /@strudel.cycles/webaudio/0.0.6:
+    resolution: {integrity: sha512-f1fFzXI8BkydPOXC/3TZ/cMH8wTmj5geVt5g1hqDIzN1nyk0GNehf+TWwLAcwpRA/Y0ISaKo9XoXYlv8V/MfPw==}
+    dependencies:
+      '@strudel.cycles/core': 0.0.5
     dev: false
 
   /@tonaljs/abc-notation/4.6.5:
