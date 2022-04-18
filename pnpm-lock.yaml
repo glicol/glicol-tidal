@@ -9,7 +9,7 @@ specifiers:
 dependencies:
   '@strudel.cycles/core': 0.0.5
   '@strudel.cycles/mini': 0.0.7
-  glicol: 0.2.20
+  glicol: link:../../../../usr/local/lib/node_modules/glicol
 
 devDependencies:
   vite: 2.9.5
@@ -490,10 +490,6 @@ packages:
   /function-bind/1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
     dev: true
-
-  /glicol/0.2.20:
-    resolution: {integrity: sha512-n7pPTyeeplTeOt6w7K7kzjq8oJMeG9POEmCHRL2puP9y7qlooRl7Y21T4J291DEeCxa+oEyufddAiLM9K24IiA==}
-    dev: false
 
   /has/1.0.3:
     resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
