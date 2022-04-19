@@ -1,9 +1,18 @@
 import './neo.css'
 import './style.css'
 import Glicol from 'glicol'
+import * as g from 'glicol'
 import { stack, sequence, Pattern } from '@strudel.cycles/core';
 import { mini } from '@strudel.cycles/mini';
 import { Scheduler } from "@strudel.cycles/webaudio";
+
+window.stack = stack
+window.sequence = sequence;
+window.mini = mini;
+window.Pattern = Pattern;
+window.psampler = g.psampler
+window.sin = g.sin
+window.mix = g.mix
 
 let myTextarea = document.getElementById("code");
 window.editor = CodeMirror.fromTextArea(myTextarea, {
@@ -16,7 +25,22 @@ window.editor = CodeMirror.fromTextArea(myTextarea, {
     }
 });
 
-Pattern.prototype.to_glicol = function (numSpan) {
+Pattern.prototype.asGlicol = function (numSpan) {
+    let span = numSpan? numSpan : 1;
+    const events = this.queryArc(0, span);
+    const spans = events.map(e=> {
+        let begin = e.whole.begin.toFraction();
+        let pos = begin.includes("/") ?
+        parseInt(begin.split("/")[0]) / parseInt(begin.split("/")[1]) : 0
+        let v = isNaN(parseFloat(e.value)) ? "\\"+e.value : parseFloat(e.value)
+        return `${v}@${pos}`
+    })
+    let result = `"${spans.join(" ")}"(${span})`
+    console.log("Pattern.asGlicol: ", result);
+    return result
+}
+
+Pattern.prototype.toGlicol = function (numSpan) {
     let span = numSpan? numSpan : 1;
     const events = this.queryArc(0, span);
     const spans = events.map(e=> {
@@ -29,11 +53,16 @@ Pattern.prototype.to_glicol = function (numSpan) {
     return "`"+spans.join(",")+"`"
 }
 
-window.sequence = sequence;
-window.mini = mini;
-window.Pattern = Pattern;
+let defaultCode = `glicol.play({
+    "~t1": psampler(mini("[cb [rm sid] tok*3 talk1]*2").asGlicol(1)),
+    "~t2": psampler(mini("[bin]*4").asGlicol(1)),
+    o: mix("~t1 ~t2").plate(0.1)
+})
 
-let defaultCode =
+// run "glicol.showAllSamples()" in console to see the loaded samples
+`;
+
+let _temp = 
 `mini("[60 [63, 67, 70, 72]]").msg_glicol("~t1", 0)
 
 glicol.run(\`
@@ -68,11 +97,11 @@ window.scheduler = new Scheduler({
         let index = window.msg_target.nodeIndex
         let m = `${name}, ${index}, 3, ${e.whole.begin.valueOf()}=>${e.value}`
         console.log(m)
-        glicol.send_msg(m)
+        glicol.sendMsg(m)
     }
 })
 
-Pattern.prototype.msg_glicol = function(trackName, nodeIndex) {
+Pattern.prototype.msgGlicol = function(trackName, nodeIndex) {
     window.msg_target = {
         "trackName": trackName,
         "nodeIndex": nodeIndex,
