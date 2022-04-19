@@ -4,14 +4,14 @@ specifiers:
   '@strudel.cycles/core': ^0.0.5
   '@strudel.cycles/mini': ^0.0.7
   '@strudel.cycles/webaudio': ^0.0.6
-  glicol: ^0.2.22
+  glicol: ^0.2.23
   vite: ^2.9.5
 
 dependencies:
   '@strudel.cycles/core': 0.0.5
   '@strudel.cycles/mini': 0.0.7
   '@strudel.cycles/webaudio': 0.0.6
-  glicol: 0.2.22
+  glicol: 0.2.23
 
 devDependencies:
   vite: 2.9.5
@@ -499,8 +499,8 @@ packages:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
     dev: true
 
-  /glicol/0.2.22:
-    resolution: {integrity: sha512-yAMBq7SB8J7yVAlR8usGj5cs5stajYJaFL9HElHJPzL6b+LnyyOrcrBZ/1C9dilhWTARF/XjoIVYY9wjwNpBwA==}
+  /glicol/0.2.23:
+    resolution: {integrity: sha512-0RW7+02NhCISbjFwFa9IB7sB/PcnizvyB/VV+X98RBeZ7byHgW7vTIwTxy6AUzJ0p3KnDhLKPKZi5YFs83EmKQ==}
     dev: false
 
   /has/1.0.3:
@@ -510,8 +510,8 @@ packages:
       function-bind: 1.1.1
     dev: true
 
-  /is-core-module/2.8.1:
-    resolution: {integrity: sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==}
+  /is-core-module/2.9.0:
+    resolution: {integrity: sha512-+5FPy5PnwmO3lvfMb0AsoPaBG+5KHUI0wYFXOtYPnVVVspTFUuMZNfNaNVRt3FZadstu2c8x23vykRW/NBoU6A==}
     dependencies:
       has: 1.0.3
     dev: true
@@ -556,7 +556,7 @@ packages:
     resolution: {integrity: sha512-Hhtrw0nLeSrFQ7phPp4OOcVjLPIeMnRlr5mcnVuMe7M/7eBn98A3hmFRLoFo3DLZkivSYwhRUJTyPyWAk56WLw==}
     hasBin: true
     dependencies:
-      is-core-module: 2.8.1
+      is-core-module: 2.9.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true

@@ -12,6 +12,13 @@ window.mini = mini;
 window.Pattern = Pattern;
 window.psampler = g.psampler
 window.sin = g.sin
+window.saw = g.saw
+window.squ = g.squ
+window.squ = g.squ
+window.noise = g.noise
+window.imp = g.imp
+window.seq = g.seq
+window.speed = g.speed
 window.mix = g.mix
 
 let myTextarea = document.getElementById("code");
@@ -25,18 +32,19 @@ window.editor = CodeMirror.fromTextArea(myTextarea, {
     }
 });
 
-Pattern.prototype.asGlicol = function (numSpan) {
+Pattern.prototype.take = function (numSpan) {
     let span = numSpan? numSpan : 1;
     const events = this.queryArc(0, span);
     const spans = events.map(e=> {
         let begin = e.whole.begin.toFraction();
         let pos = begin.includes("/") ?
         parseInt(begin.split("/")[0]) / parseInt(begin.split("/")[1]) : 0
-        let v = isNaN(parseFloat(e.value)) ? "\\"+e.value : parseFloat(e.value)
+        // parseFloat("808bd") === 808...
+        let v = isNaN(e.value) ? "\\"+e.value : parseFloat(e.value)
         return `${v}@${pos}`
     })
     let result = `"${spans.join(" ")}"(${span})`
-    console.log("Pattern.asGlicol: ", result);
+    // console.log("Pattern.take: ", result);
     return result
 }
 
@@ -53,14 +61,28 @@ Pattern.prototype.toGlicol = function (numSpan) {
     return "`"+spans.join(",")+"`"
 }
 
-let defaultCode = `glicol.play({
-    "~t1": psampler(mini("[cb [rm sid] tok*3 talk1]*2").asGlicol(1)),
-    "~t2": psampler(mini("[bin]*4").asGlicol(1)),
-    o: mix("~t1 ~t2").plate(0.1)
+let defaultCode = 
+`glicol.play({
+  "~t1": psampler(mini("[cb [rm sid] tok*3 talk1]*2").take(1))
+  .lpf(mini("[200 [4000 1000]]/2").take(2), 1).mul(0.5),
+  
+  "~t2": psampler(mini("[808bd]*4").take(1)).lpf("~mod", 3.0).mul(0.5),
+
+  "~mod": sin(0.2).mul(1000).add(1500),
+    
+  o: mix("~t..").plate(0.1)
 })
 
-// run "glicol.showAllSamples()" in console to see the loaded samples
-`;
+// run "glicol.showAllSamples()" in console to see the loaded samples`
+
+// let defaultCode = `glicol.play({
+//     "~t1": psampler(mini("[cb [rm sid] tok*3 talk1]*2").asGlicol(1)),
+//     "~t2": psampler(mini("[bin]*4").asGlicol(1)),
+//     o: mix("~t1 ~t2").plate(0.1)
+// })
+
+// // run "glicol.showAllSamples()" in console to see the loaded samples
+// `;
 
 let _temp = 
 `mini("[60 [63, 67, 70, 72]]").msg_glicol("~t1", 0)
