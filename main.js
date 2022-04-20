@@ -20,6 +20,8 @@ window.imp = g.imp
 window.seq = g.seq
 window.speed = g.speed
 window.mix = g.mix
+window.psynth = g.psynth
+window.sig = g.sig
 
 let myTextarea = document.getElementById("code");
 window.editor = CodeMirror.fromTextArea(myTextarea, {
@@ -63,13 +65,10 @@ Pattern.prototype.toGlicol = function (numSpan) {
 
 let defaultCode = 
 `glicol.play({
-  "~t1": psampler(mini("[cb [rm sid] tok*3 talk1]*2").take(1))
-  .lpf(mini("[200 [4000 1000]]/2").take(2), 1).mul(0.5),
+  "~t1": psampler(mini("[cb [rm sid] tok*3 talk1]*2").take(1)).mul("~p1"),
   
-  "~t2": psampler(mini("[808bd]*4").take(1)).lpf("~mod", 3.0).mul(0.5),
-
-  "~mod": sin(0.2).mul(1000).add(1500),
-    
+  "~p1": sig(mini("[1 0.5 0.1 0.9]").take(1)),
+  
   o: mix("~t..").plate(0.1)
 })
 
@@ -84,16 +83,16 @@ let defaultCode =
 // // run "glicol.showAllSamples()" in console to see the loaded samples
 // `;
 
-let _temp = 
-`mini("[60 [63, 67, 70, 72]]").msg_glicol("~t1", 0)
+// let _temp = 
+// `mini("[60 [63, 67, 70, 72]]").msg_glicol("~t1", 0)
 
-glicol.run(\`
+// glicol.run(\`
 
-~t1: msgsynth 'saw' 0.01 0.1
+// ~t1: msgsynth 'saw' 0.01 0.1
 
-o: mix ~t.. >> plate 0.1
+// o: mix ~t.. >> plate 0.1
 
-\`)
+// \`)
 
 // let span = 1
 // let pattern = mini("[[60*2 [67,63]*3] [[67,72]*3]]").to_glicol(span)
@@ -109,7 +108,9 @@ o: mix ~t.. >> plate 0.1
 // out: mix ~t.. >> plate 0.1\`)`;
 
 editor.setValue(defaultCode)
-window.glicol = new Glicol(true)
+window.glicol = new Glicol({
+    isLiveCoding: true
+})
 
 window.scheduler = new Scheduler({
     audioContext: glicol.audioContext,
@@ -140,3 +141,14 @@ document.getElementById("run").addEventListener("click", ()=>{
         ${window.editor.getValue()}
     }`)()()
 })
+
+// document.getElementById("load").addEventListener("click", ()=>{
+//     // console.log(document.getElementById("url").value)
+//     if (document.getElementById("url").value) {
+//         glicol.addSampleFiles(document.getElementById("name").value, document.getElementById("url").value)
+//     } else {
+//         if (document.getElementById("name").value) {
+//             glicol.addSampleFiles(document.getElementById("name").value)
+//         }
+//     }
+// })

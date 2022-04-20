@@ -4,14 +4,14 @@ specifiers:
   '@strudel.cycles/core': ^0.0.5
   '@strudel.cycles/mini': ^0.0.7
   '@strudel.cycles/webaudio': ^0.0.6
-  glicol: ^0.2.23
+  glicol: ^0.3.1
   vite: ^2.9.5
 
 dependencies:
   '@strudel.cycles/core': 0.0.5
   '@strudel.cycles/mini': 0.0.7
   '@strudel.cycles/webaudio': 0.0.6
-  glicol: 0.2.23
+  glicol: 0.3.1
 
 devDependencies:
   vite: 2.9.5
@@ -499,8 +499,8 @@ packages:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
     dev: true
 
-  /glicol/0.2.23:
-    resolution: {integrity: sha512-0RW7+02NhCISbjFwFa9IB7sB/PcnizvyB/VV+X98RBeZ7byHgW7vTIwTxy6AUzJ0p3KnDhLKPKZi5YFs83EmKQ==}
+  /glicol/0.3.1:
+    resolution: {integrity: sha512-US4jBndWlQGI3bDCBIIsrClePxlxOBzUiAWbMyCe1+UY1MNBkiszc6bacWt37t8hyV3zxV0dCAi8tNUjHjEThw==}
     dev: false
 
   /has/1.0.3:
