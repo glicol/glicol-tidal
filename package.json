@@ -14,6 +14,6 @@
     "@strudel.cycles/core": "^0.0.5",
     "@strudel.cycles/mini": "^0.0.7",
     "@strudel.cycles/webaudio": "^0.0.6",
-    "glicol": "^0.3.1"
+    "glicol": "^0.3.3"
   }
 }

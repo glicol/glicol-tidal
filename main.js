@@ -22,6 +22,7 @@ window.speed = g.speed
 window.mix = g.mix
 window.psynth = g.psynth
 window.sig = g.sig
+window.sp = g.sp
 
 let myTextarea = document.getElementById("code");
 window.editor = CodeMirror.fromTextArea(myTextarea, {
@@ -34,7 +35,7 @@ window.editor = CodeMirror.fromTextArea(myTextarea, {
     }
 });
 
-Pattern.prototype.take = function (numSpan) {
+Pattern.prototype.take = function(numSpan) {
     let span = numSpan? numSpan : 1;
     const events = this.queryArc(0, span);
     const spans = events.map(e=> {
@@ -48,6 +49,11 @@ Pattern.prototype.take = function (numSpan) {
     let result = `"${spans.join(" ")}"(${span})`
     // console.log("Pattern.take: ", result);
     return result
+}
+
+String.prototype.take = function(numSpan) {
+    // console.log(this, numSpan)
+    return mini(this).take(numSpan)
 }
 
 Pattern.prototype.toGlicol = function (numSpan) {
@@ -65,9 +71,9 @@ Pattern.prototype.toGlicol = function (numSpan) {
 
 let defaultCode = 
 `glicol.play({
-  "~t1": psampler(mini("[cb [rm sid] tok*3 talk1]*2").take(1)).mul("~p1"),
+  "~t1": psampler( "[cb [rm sid] tok*3 talk1]*2".take(1) ).mul("~p1"),
   
-  "~p1": sig(mini("[1 0.5 0.1 0.9]").take(1)),
+  "~p1": sig( "[1 0.5 0.1 0.9]".take(1) ),
   
   o: mix("~t..").plate(0.1)
 })
@@ -109,7 +115,8 @@ let defaultCode =
 
 editor.setValue(defaultCode)
 window.glicol = new Glicol({
-    isLiveCoding: true
+    isLiveCoding: true,
+    loadSamples: true
 })
 
 window.scheduler = new Scheduler({
