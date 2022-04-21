@@ -6,34 +6,10 @@
     <title>glicol-strudel demo</title>
   </head>
   <body>
-    <main>
-      <div id="inner">
-      <textarea id="code" cols="40" rows="5"></textarea><br />
-      <button id="run">run</button>
-      <!-- <br /><br />
-      <p>load your own samples:</p>
-      <button id="load">empty the url to load local samples</button>
-      <p>
-      <p>what symbol do you like to use for your sample?</p>
-      <input type="text" id="name" size="100" value="808bd">
-      <p>url of the sample:</p>
-      <input type="text" id="url" size="100" value="https://cdn.jsdelivr.net/gh/chaosprint/glicol@0.9.0/js/assets/808bd.wav">
-      </p> -->
-      <p>This is a combination of Glicol language/audio engine and Strudel/Tidal (mini) patterns.</p>
-      <p>Find more on:</p>
-      <p><a href="https://glicol.org" style="text-decoration: underline">https://glicol.org</a></p>
-      <p><a href="https://strudel.tidalcycles.org/tutorial" style="text-decoration: underline">https://strudel.tidalcycles.org/tutorial</a></p>
-      <p>Source code:</p>
-      <p><a href="https://github.com/glicol/glicol-strudel" style="text-decoration: underline">https://github.com/glicol/glicol-strudel</a></p>
-      <!-- <p>Note:</p> -->
-      <!-- <ul> -->
-        <!-- <li>For psynth, only MIDI numbers are supported; will have a converter to support note like 'c5' soon.</li> -->
-        <!-- <li>The <code>span</code> is a POC and I am working on that. Currently it's always span 1.</li> -->
-        <!-- <li>There will be more synth style to come.</li> -->
-        <!-- <li>I am also working on scheduler.</li> -->
-      <!-- </ul> -->
-      </div>
-    </main>
+    <div class="container">
+      <textarea id="codemirror" cols="40" rows="5"></textarea>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.3/theme/tomorrow-night-bright.min.css" integrity="sha512-3Y1uflq6HDEqa+KqoiWodlHu41BN+TkKpS/umSh8TR0El7LlgRcYIaWUZFv/z0jW1edXM4U8JavqtIE8A2hLcw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap" rel="stylesheet">

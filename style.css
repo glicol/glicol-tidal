@@ -9,7 +9,13 @@
   font-size:large
 }
 
-p, ul, li {
+/* p, ul, li {
   font-family: 'Inconsolata', monospace;
   padding: 5px;
+} */
+
+html, body .CodeMirror {
+  height: 100vh !important;
+  width: 100vw !important;
+  padding: 0px;
 }
