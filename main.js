@@ -89,9 +89,9 @@ window.scheduler = new Scheduler({
 // }
 
 String.prototype.onEvent = function(c) {
-    console.log(this, c)
+    // console.log(this, c)
     window.closure = c
-    console.log(this, window.closure)
+    // console.log(this, window.closure)
     window.scheduler.setPattern(mini(this));
     if (!window.isSchedulerRunning) {
         window.scheduler.start();
